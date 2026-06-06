@@ -1,4 +1,4 @@
-# ⚡ MPDTE College Predictor & Analyzer
+#  MPDTE College Predictor & Analyzer
 
 > A desktop tool to predict MPDTE engineering college admission chances based on JEE rank and category — built for Madhya Pradesh students navigating MPDTE counselling.
 
