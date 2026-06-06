@@ -10,7 +10,7 @@
 
 **This project was not built to scale or become a product.** I made it for myself to understand my own MPDTE counselling options. I'm sharing it publicly on the off-chance that even one student finds it useful. That's enough for me.
 
-**This was built with AI assistance (Claude Sonnet by Anthropic).** I am not a professional developer. The code was generated with AI help, guided by what I needed. I'm being upfront about this because I think honesty matters more than credit.
+**This was built with AI assistance (Claude Sonnet by Anthropic).**I am a student and this project was built primarily for personal use. The code was generated with AI help, guided by what I needed. I'm being upfront about this because I think honesty matters more than credit.
 
 ---
 
@@ -177,6 +177,16 @@ This tool uses historical MPDTE counselling data for prediction. Actual admissio
 
 ---
 
+## Why I Built This
+
+I got tired of manually searching through large MPDTE cutoff PDFs during counselling.
+
+I wanted a way to import the PDFs, search all colleges instantly, and estimate my chances based on rank and category.
+
+After building it for myself, I decided to share it publicly in case it helps other MP engineering aspirants.
+
+---
+
 ## Honesty Section
 
 I want to be clear about what this is and isn't:
@@ -188,3 +198,9 @@ I want to be clear about what this is and isn't:
 - I will not be actively maintaining this — if something breaks, feel free to fork and fix it
 
 If you're an MP engineering student and this helps you make sense of your counselling options, that's all I hoped for.
+
+---
+
+## License
+
+MIT License
