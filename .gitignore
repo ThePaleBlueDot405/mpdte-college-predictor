@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Database (personal data — don't upload)
+*.db
+mpdte_predictor.db
+
+# Exports (generated files)
+mpdte_exports/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# PyInstaller
+*.spec
