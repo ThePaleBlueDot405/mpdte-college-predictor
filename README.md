@@ -35,47 +35,44 @@ Everything is stored locally in a SQLite database on your machine. No internet c
 
 ![Results View](screenshots/Screenshot%202026-06-07%20113010.png)
 
+---
+### Strategy — Counselling Preference Order
+*Generates an optimal preference list weighted by band and college type (Govt > Aided > SFI > Private).*
+
 ![Results Table — Color Coded](screenshots/Screenshot%202026-06-07%20112957.png)
 
 ---
-
-### Strategy — Counselling Preference Order
-*Generates an optimal preference list weighted by band and college type (Govt > Aided > SFI > Private).*
+### Search — Global Database Search
+*Search any college, branch, city, or type across all imported data.*
 
 ![Counselling Strategy](screenshots/Screenshot%202026-06-07%20113208.png)
 
 ---
-
-### Search — Global Database Search
-*Search any college, branch, city, or type across all imported data.*
+### Analytics — Database Overview
+*Category distribution, branch breakdown, and key stats across all imported PDFs.*
 
 ![Search Tab](screenshots/Screenshot%202026-06-07%20113117.png)
 
 ---
-
-### Analytics — Database Overview
-*Category distribution, branch breakdown, and key stats across all imported PDFs.*
+### College Detail
+*Deep-dive into any college — all branches, categories, opening/closing ranks, domicile flags.*
 
 ![Analytics Dashboard](screenshots/Screenshot%202026-06-07%20113126.png)
 
 ---
-
-### College Detail
-*Deep-dive into any college — all branches, categories, opening/closing ranks, domicile flags.*
+### Import PDF
+*Import one or more MPDTE counselling PDFs — data is auto-extracted and stored. Duplicates are skipped.*
 
 ![College Detail](screenshots/Screenshot%202026-06-07%20113145.png)
 
 ---
-
-### Import PDF
-*Import one or more MPDTE counselling PDFs — data is auto-extracted and stored. Duplicates are skipped.*
+### Export — Execl Report
+*Clean printable admission analysis report with your profile, band summary, and top recommendations.*
 
 ![Import PDF](screenshots/Screenshot%202026-06-07%20114122.png)
 
 ---
-
-### Export — PDF Report
-*Clean printable admission analysis report with your profile, band summary, and top recommendations.*
+### Export — pdf Report
 
 ![PDF Report Export](screenshots/Screenshot%202026-06-07%20114050.png)
 
