@@ -1,6 +1,6 @@
-#  MPDTE College Predictor & Analyzer
+# MPDTE College Predictor & Analyzer
 
-> A desktop tool to predict MPDTE engineering college admission chances based on JEE rank and category — built for Madhya Pradesh students navigating MPDTE counselling.
+> A desktop tool to analyze MPDTE engineering college admission chances based on JEE rank and category — built for Madhya Pradesh students navigating MPDTE counselling.
 
 ---
 
@@ -10,7 +10,7 @@
 
 **This project was not built to scale or become a product.** I made it for myself to understand my own MPDTE counselling options. I'm sharing it publicly on the off-chance that even one student finds it useful. That's enough for me.
 
-**This was built with AI assistance (Claude Sonnet by Anthropic).**I am a student and this project was built primarily for personal use. The code was generated with AI help, guided by what I needed. I'm being upfront about this because I think honesty matters more than credit.
+**This was built with AI assistance (Claude Sonnet by Anthropic).** I am a student and this project was built primarily for personal use. The code was generated with AI help, guided by what I needed. I'm being upfront about this because I think honesty matters more than credit.
 
 ---
 
@@ -19,33 +19,92 @@
 You import official MPDTE counselling PDFs, enter your JEE rank and category, and the tool tells you:
 
 - Which colleges and branches you have a realistic chance at
-- Probability percentage for each option (based on historical closing ranks)
+- A confidence band for each option (based on where your rank falls relative to historical opening/closing ranks)
 - A suggested counselling preference order
 - Which colleges you narrowly missed
-- What happens if your rank were slightly different
+- How your options change across a range of ranks (best/expected/worst case)
 
 Everything is stored locally in a SQLite database on your machine. No internet connection needed after setup.
 
 ---
 
-## Probability Scale
+## Screenshots
 
-| Probability | Label |
+### Results — Admission Bands
+*Enter your rank and category, hit Analyze — every matching college + branch is classified by confidence band.*
+
+![Results View](screenshots/Screenshot_2026-06-07_113010.png)
+
+![Results Table — Color Coded](screenshots/Screenshot_2026-06-07_112957.png)
+
+---
+
+### Strategy — Counselling Preference Order
+*Generates an optimal preference list weighted by band and college type (Govt > Aided > SFI > Private).*
+
+![Counselling Strategy](screenshots/Screenshot_2026-06-07_113208.png)
+
+---
+
+### Search — Global Database Search
+*Search any college, branch, city, or type across all imported data.*
+
+![Search Tab](screenshots/Screenshot_2026-06-07_113117.png)
+
+---
+
+### Analytics — Database Overview
+*Category distribution, branch breakdown, and key stats across all imported PDFs.*
+
+![Analytics Dashboard](screenshots/Screenshot_2026-06-07_113126.png)
+
+---
+
+### College Detail
+*Deep-dive into any college — all branches, categories, opening/closing ranks, domicile flags.*
+
+![College Detail](screenshots/Screenshot_2026-06-07_113145.png)
+
+---
+
+### Import PDF
+*Import one or more MPDTE counselling PDFs — data is auto-extracted and stored. Duplicates are skipped.*
+
+![Import PDF](screenshots/Screenshot_2026-06-07_114122.png)
+
+---
+
+### Export — PDF Report
+*Clean printable admission analysis report with your profile, band summary, and top recommendations.*
+
+![PDF Report Export](screenshots/Screenshot_2026-06-07_114050.png)
+
+---
+
+## How Bands Work
+
+There are no fake probability percentages in this tool. Earlier versions had them — they were mathematically fabricated and removed. What you see instead is an honest classification based on where your rank sits relative to the historical opening and closing ranks for each row.
+
+| Band | What it means |
 |---|---|
-| 95%+ | Almost Guaranteed |
-| 80–95% | Very Safe |
-| 60–80% | Safe |
-| 40–60% | Possible |
-| 20–40% | Difficult |
-| < 20% | Very Unlikely |
+| **Extremely Likely** | Your rank is better than the historical opening rank |
+| **Likely** | Within the opening–closing range, closer to opening |
+| **Reasonable** | Within the opening–closing range |
+| **Borderline** | Up to 10% beyond the closing rank |
+| **Stretch** | 10–30% beyond the closing rank |
+| **Historically Unavailable** | More than 30% past the closing rank |
+
+A better rank always gives you fewer or equal options — never more. This was verified across 11 test ranks from 1 to 10,00,000 with zero monotonicity violations.
 
 ---
 
 ## Features
 
-- **College Predictor** — Enter rank, category, domicile, fee waiver, and get ranked results across all imported data
-- **Counselling Strategy** — Optimal preference order weighted by probability and college type (Govt > Aided > SFI > Private)
-- **Rank Simulator** — See how your options shift at ±5000 ranks
+- **College Predictor** — Enter rank, category, domicile, fee waiver, and get results across all imported data classified by band
+- **Counselling Strategy** — Optimal preference order weighted by band and college type (Govt > Aided > SFI > Private)
+- **Rank Range Analysis** — Enter a rank ± margin (±5k / ±10k / ±25k / ±50k / ±100k) and see best/expected/worst case options with full band breakdown
+- **Improved Simulator** — See band-by-band shifts as rank changes, not just a total count
+- **Diagnostics Panel** — For any result: College | Branch | Opening Rank | Closing Rank | Distance from Opening | Distance from Closing | Band — so you can verify the logic yourself
 - **Missed Opportunities** — Colleges just beyond your closing rank
 - **Global Search** — Search by college name, branch, city, type
 - **Analytics Dashboard** — Category distribution, branch distribution, college type breakdown
@@ -90,7 +149,7 @@ chmod +x run_linux_mac.sh
 
 1. **Import PDFs** — Get official MPDTE counselling result PDFs from the MPDTE website and import them through the app. It auto-extracts all data.
 2. **Enter your profile** — JEE rank, category (General/OBC/SC/ST/EWS), MP domicile (Yes/No), fee waiver eligibility
-3. **Get predictions** — The app scans all imported data and calculates admission probability for every matching college + branch combination
+3. **Get results** — The app classifies every matching college + branch combination by band
 4. **Export** — Save results as CSV, Excel, or PDF report
 
 ---
@@ -105,7 +164,7 @@ mpdte_predictor/
 ├── core/
 │   ├── database.py            # SQLite storage layer
 │   ├── pdf_extractor.py       # Parses MPDTE counselling PDFs
-│   ├── prediction_engine.py   # Probability calculation logic
+│   ├── prediction_engine.py   # Band classification logic
 │   └── export_manager.py      # CSV / Excel / PDF export
 │
 └── gui/
@@ -155,7 +214,7 @@ Pillow          — Image support
 ## Limitations
 
 - Only works with MPDTE counselling data (MP state engineering admissions)
-- Predictions are based on historical closing ranks — actual cutoffs change every year
+- Band classification is based on historical closing ranks — actual cutoffs change every year
 - PDF extraction may not work perfectly if MPDTE changes their PDF format
 - Not tested with all possible edge cases in counselling PDFs
 
@@ -173,7 +232,7 @@ pyinstaller --onefile --windowed --name "MPDTE_Predictor" main.py
 
 ## Disclaimer
 
-This tool uses historical MPDTE counselling data for prediction. Actual admission cutoffs vary every year based on the applicant pool, seat availability, and MPDTE policy changes. Always verify with official MPDTE sources at [dte.mponline.gov.in](https://dte.mponline.gov.in).
+This tool uses historical MPDTE counselling data for classification. Actual admission cutoffs vary every year based on the applicant pool, seat availability, and MPDTE policy changes. Always verify with official MPDTE sources at [dte.mponline.gov.in](https://dte.mponline.gov.in).
 
 ---
 
@@ -181,7 +240,7 @@ This tool uses historical MPDTE counselling data for prediction. Actual admissio
 
 I got tired of manually searching through large MPDTE cutoff PDFs during counselling.
 
-I wanted a way to import the PDFs, search all colleges instantly, and estimate my chances based on rank and category.
+I wanted a way to import the PDFs, search all colleges instantly, and understand my options based on rank and category — without any hand-wavy percentages.
 
 After building it for myself, I decided to share it publicly in case it helps other MP engineering aspirants.
 
