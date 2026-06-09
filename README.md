@@ -33,51 +33,51 @@ Everything is stored locally in a SQLite database on your machine. No internet c
 ### Results — Admission Bands
 *Enter your rank and category, hit Analyze — every matching college + branch is classified by confidence band.*
 
-![Results View](screenshots/Screenshot_2026-06-07_113010.png)
+![Results View](screenshots/Screenshot%202026-06-07%20113010.png)
 
-![Results Table — Color Coded](screenshots/Screenshot_2026-06-07_112957.png)
+![Results Table — Color Coded](screenshots/Screenshot%202026-06-07%20112957.png)
 
 ---
 
 ### Strategy — Counselling Preference Order
 *Generates an optimal preference list weighted by band and college type (Govt > Aided > SFI > Private).*
 
-![Counselling Strategy](screenshots/Screenshot_2026-06-07_113208.png)
+![Counselling Strategy](screenshots/Screenshot%202026-06-07%20113208.png)
 
 ---
 
 ### Search — Global Database Search
 *Search any college, branch, city, or type across all imported data.*
 
-![Search Tab](screenshots/Screenshot_2026-06-07_113117.png)
+![Search Tab](screenshots/Screenshot%202026-06-07%20113117.png)
 
 ---
 
 ### Analytics — Database Overview
 *Category distribution, branch breakdown, and key stats across all imported PDFs.*
 
-![Analytics Dashboard](screenshots/Screenshot_2026-06-07_113126.png)
+![Analytics Dashboard](screenshots/Screenshot%202026-06-07%20113126.png)
 
 ---
 
 ### College Detail
 *Deep-dive into any college — all branches, categories, opening/closing ranks, domicile flags.*
 
-![College Detail](screenshots/Screenshot_2026-06-07_113145.png)
+![College Detail](screenshots/Screenshot%202026-06-07%20113145.png)
 
 ---
 
 ### Import PDF
 *Import one or more MPDTE counselling PDFs — data is auto-extracted and stored. Duplicates are skipped.*
 
-![Import PDF](screenshots/Screenshot_2026-06-07_114122.png)
+![Import PDF](screenshots/Screenshot%202026-06-07%20114122.png)
 
 ---
 
 ### Export — PDF Report
 *Clean printable admission analysis report with your profile, band summary, and top recommendations.*
 
-![PDF Report Export](screenshots/Screenshot_2026-06-07_114050.png)
+![PDF Report Export](screenshots/Screenshot%202026-06-07%20114050.png)
 
 ---
 
